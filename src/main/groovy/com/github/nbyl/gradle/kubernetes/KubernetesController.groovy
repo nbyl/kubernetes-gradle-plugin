@@ -2,7 +2,11 @@ package com.github.nbyl.gradle.kubernetes
 
 class KubernetesController {
 
-    def applyManifest(manifest) {
+    def project
 
+    def applyManifest(manifest) {
+        project.exec {
+            commandLine 'kubectl', 'apply', '-f', "${manifest}"
+        }
     }
 }
