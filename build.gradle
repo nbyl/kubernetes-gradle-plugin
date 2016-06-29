@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply from: "$rootDir/gradle/publishing.gradle"
 
 repositories {
     mavenCentral()
