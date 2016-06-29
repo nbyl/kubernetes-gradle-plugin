@@ -1,4 +1,26 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
 apply plugin: 'maven-publish'
+apply plugin: com.jfrog.bintray.gradle.BintrayPlugin
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+
+    pkg {
+        repo = 'maven'
+        name = 'kubernetes-gradle-plugin'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/nbyl/kubernetes-gradle-plugin.git'
+    }
+}
 
 publishing {
     publications {
