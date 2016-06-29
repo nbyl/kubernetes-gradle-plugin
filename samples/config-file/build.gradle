@@ -1,0 +1,19 @@
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.github.nbyl.gradle:kubernetes-gradle-plugin:0.1-SNAPSHOT"
+    }
+}
+
+apply plugin: 'com.github.nbyl.kubernetes'
+
+kubernetes {
+    configFile new File('src/main/kubernetes/config')
+}
+
+import com.github.nbyl.gradle.kubernetes.tasks.*
+
+task deploy(type: KubernetesApply) {
+}

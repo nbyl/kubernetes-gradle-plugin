@@ -9,9 +9,10 @@ class KubernetesApply extends DefaultTask {
     def KubernetesController controller
 
     def manifestDirs = ['src/main/kubernetes']
-    def manifestInclude = '**/*.yml'
+    def manifestInclude = '**/*.yaml'
 
     KubernetesApply() {
+        controller = new KubernetesController(project: project)
     }
 
     def deployFile(def manifest) {
@@ -19,7 +20,6 @@ class KubernetesApply extends DefaultTask {
             commandLine 'kubectl', 'apply', '-f', "${manifest}"
         }
     }
-
 
     @TaskAction
     def deploy() {
