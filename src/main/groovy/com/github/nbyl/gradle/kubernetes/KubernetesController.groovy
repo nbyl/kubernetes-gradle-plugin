@@ -11,7 +11,7 @@ class KubernetesController {
     private def runKubectl(Object... args) {
         def commandLineArgs = ['kubectl']
 
-        if (project.kubernetes.configFile) {
+        if (project.kubernetes && project.kubernetes.configFile) {
             commandLineArgs << "--kubeconfig=${project.kubernetes.configFile.absolutePath}"
         }
         commandLineArgs.addAll(args)

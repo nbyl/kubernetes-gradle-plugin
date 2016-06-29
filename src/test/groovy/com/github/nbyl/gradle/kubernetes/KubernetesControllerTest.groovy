@@ -9,9 +9,11 @@ class KubernetesControllerTest {
 
     @Test
     void applyManifestCallsKubectl() {
-        def manifest = new File('src/test/resources/manifest1.yml')
+        def manifest = new File('src/test/resources/manifest1.yaml')
 
         def project = ProjectBuilder.builder().build()
+        project.pluginManager.apply('com.github.nbyl.kubernetes')
+
         def projectMock = new MockFor(Project)
         projectMock.demand.with {
             exec {
