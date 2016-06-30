@@ -20,7 +20,12 @@ cache:
     - $HOME/.gradle/wrapper/
 
 deploy:
-  provider: script
-  script: ./gradlew deploy
-  on:
-    branch: master
+  - provider: script
+    script: ./gradlew deploy
+    on:
+      branch: master
+  - provider: script
+    script: ./gradlew deploy
+    # TODO: this should trigger a deploy to the gradle plugin site
+    on:
+      tags: true
