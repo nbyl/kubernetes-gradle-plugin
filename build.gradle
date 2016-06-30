@@ -1,12 +1,11 @@
 plugins {
     id 'groovy'
-    id 'org.ajoberstar.grgit' version '1.5.0'
-    id 'org.ajoberstar.release-opinion' version '1.5.0'
+    id 'com.palantir.git-version' version '0.5.2'
 }
 
-apply plugin: 'groovy'
 apply from: "$rootDir/gradle/publishing.gradle"
 
+version gitVersion()
 
 repositories {
     mavenCentral()
@@ -19,20 +18,4 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = "${gradleVersion}"
-}
-
-import org.ajoberstar.gradle.git.release.opinion.Strategies
-import org.ajoberstar.gradle.git.release.semver.RebuildVersionStrategy
-
-release {
-    versionStrategy RebuildVersionStrategy.INSTANCE
-    versionStrategy Strategies.FINAL
-    versionStrategy Strategies.PRE_RELEASE_ALPHA_BETA
-    versionStrategy Strategies.DEVELOPMENT
-}
-
-task printVersion {
-    doLast {
-        println version
-    }
 }
