@@ -20,3 +20,13 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = "${gradleVersion}"
 }
+
+import org.ajoberstar.gradle.git.release.opinion.Strategies
+import org.ajoberstar.gradle.git.release.semver.RebuildVersionStrategy
+
+release {
+    versionStrategy RebuildVersionStrategy.INSTANCE
+    versionStrategy Strategies.FINAL
+    versionStrategy Strategies.PRE_RELEASE_ALPHA_BETA
+    versionStrategy Strategies.DEVELOPMENT
+}
