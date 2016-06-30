@@ -20,5 +20,3 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = "${gradleVersion}"
 }
-
-tasks.release.dependsOn test
