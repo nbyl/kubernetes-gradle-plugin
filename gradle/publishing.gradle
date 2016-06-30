@@ -14,11 +14,18 @@ bintray {
     user = System.getenv('BINTRAY_USER')
     key = System.getenv('BINTRAY_KEY')
 
+    publications = ['mavenJava']
+    publish = true
+
     pkg {
         repo = 'maven'
         name = 'kubernetes-gradle-plugin'
+        websiteUrl = "https://github.com/nbyl/${project.name}"
+        issueTrackerUrl = "https://github.com/nbyl/${project.name}/issues"
+        vcsUrl = "https://github.com/nbyl/${project.name}.git"
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/nbyl/kubernetes-gradle-plugin.git'
+        publicDownloadNumbers = true
+        githubRepo = "nbyl/${project.name}"
     }
 }
 
@@ -28,4 +35,8 @@ publishing {
             from components.java
         }
     }
+}
+
+task deploy() {
+    dependsOn bintrayUpload
 }
