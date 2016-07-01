@@ -1,0 +1,6 @@
+{
+  "name": "Kubernetes Plugin for Gradle",
+  "tagline": "",
+  "body": "# kubernetes-gradle-plugin\r\n\r\n[![Build Status](https://travis-ci.org/nbyl/kubernetes-gradle-plugin.svg?branch=master)](https://travis-ci.org/nbyl/kubernetes-gradle-plugin)[ ![Download](https://api.bintray.com/packages/nbyl/maven/kubernetes-gradle-plugin/images/download.svg) ](https://bintray.com/nbyl/maven/kubernetes-gradle-plugin/_latestVersion)\r\n\r\n## Description\r\n\r\nTODO: provide some description\r\n\r\n## Development\r\n\r\n### Releasing\r\n\r\n* Create a branch and commit the final stuff before the release.\r\n* When ready create a release tag: `./gradlew release -Prelease.scope=minor` (see full description at https://github.com/ajoberstar/gradle-git/wiki/Release%20Plugins)\r\n* Open a pull request for this release and merge it afterwards\r\n* Travis will build the release and deploy the artifacts to bintray",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
