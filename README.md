@@ -10,7 +10,5 @@ TODO: provide some description
 
 ### Releasing
 
-* Create a branch and commit the final stuff before the release.
-* When ready create a release tag: `./gradlew release -Prelease.scope=minor` (see full description at https://github.com/ajoberstar/gradle-git/wiki/Release%20Plugins)
-* Open a pull request for this release and merge it afterwards
-* Travis will build the release and deploy the artifacts to bintray
+* Create a Tag and push it to github: `git tag '<version>' && git push --tags`
+* Travis will build the release and deploy the artifacts to [bintray](https://bintray.com/nbyl/maven/kubernetes-gradle-plugin)
